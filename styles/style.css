@@ -1,14 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @font-face {
   font-family: "Opsilon";
   src: url("Opsilon.ttf") format("truetype");
   font-display: swap;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-
 :root {
   --font-logo: "Opsilon";
-  --font-main: "Nunito", sans-serif;
+  --font-main: "Cousine", monospace;
 
   --max-width: 48rem;
   --padding-x: 2rem;
@@ -20,7 +20,8 @@
   --text: #222;
   --text-muted: #555;
 
-  --font-size-logo: clamp(3rem, 8vw, 90px);
+  --font-size-logo: clamp(3rem, 8vw, 100px);
+  --font-size-base: clamp(1rem, 4vw, 16px);
 }
 
 /* Base */
@@ -30,7 +31,9 @@
 
 body {
   margin: 0;
-  font: var(--font-main);
+  /* font: var(--font-main); */
+  font-family: monospace;
+  font-size: var(--font-size-base);
   color: var(--text);
 }
 
@@ -106,6 +109,10 @@ body {
   text-align: center;
   text-decoration: none;
   color: inherit;
+}
+
+.header-right-section a:hover{
+background-color: yellow;
 }
 
 /* Main content */
