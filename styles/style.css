@@ -1,5 +1,16 @@
+@font-face {
+  font-family: "Opsilon";
+  src: url("Opsilon.ttf") format("truetype");
+  font-display: swap;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 :root {
-  --max-width: 48rem;        /* ~768px */
+  --font-logo: "Opsilon";
+  --font-main: "Nunito", sans-serif;
+
+  --max-width: 48rem;
   --padding-x: 2rem;
   --padding-y: 4rem;
   --gap-lg: 4rem;
@@ -8,6 +19,8 @@
   --border: 1px solid #eee;
   --text: #222;
   --text-muted: #555;
+
+  --font-size-logo: clamp(3rem, 8vw, 90px);
 }
 
 /* Base */
@@ -17,20 +30,22 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font: var(--font-main);
   color: var(--text);
 }
 
+/* Page layout */
 .page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+/* Navigation */
 .nav {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem var(--padding-x);
+  padding: 1rem var(--padding-x);
   border-bottom: var(--border);
 }
 
@@ -42,31 +57,49 @@ body {
   color: inherit;
 }
 
+/* Hero wrapper */
 .home-wrapper {
   padding: var(--padding-y) 0;
 }
 
+/* Hero layout */
 .home {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--padding-x);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start; /* important */
   gap: var(--gap-lg);
 }
 
-.left {
+/* Left section */
+.header-left-section {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.right {
+.header-left-section h1 {
+  font-family: var(--font-logo);
+  font-size: var(--font-size-logo);
+  margin: 0;
+  line-height: 0.9; /* 🔑 fixes optical height */
+}
+
+.header-left-section p {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+/* Right section */
+.header-right-section {
   display: flex;
   flex-direction: column;
   gap: var(--gap-sm);
 }
 
-.right a {
+.header-right-section a {
   padding: 0.75rem 1.25rem;
   border: 1px solid var(--text);
   border-radius: 0.5rem;
@@ -75,6 +108,7 @@ body {
   color: inherit;
 }
 
+/* Main content */
 main {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -83,23 +117,36 @@ main {
   flex: 1;
 }
 
+/* Footer */
 .footer {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   border-top: var(--border);
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .home {
     flex-direction: column;
     align-items: flex-start;
+    text-align: center;
     gap: 2rem;
   }
 
-  .right,
-  .right a {
+  .header-left-section,
+  .header-right-section {
     width: 100%;
   }
+
+  .header-right-section a {
+    width: 100%;
+  }
+
+  /* Make left div text bigger on mobile */
+  .header-left-section h1 {
+    font-size: clamp(4rem, 10vw, 100px);
+  }
 }
+ 
