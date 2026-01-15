@@ -24,6 +24,7 @@
   --font-size-base: clamp(1rem, 4vw, 17px);
 
   --icon-size: 40px;
+  --gallery-pic-size: 200px;
 }
 
 /* Base */
@@ -168,7 +169,6 @@ main {
     width: 100%;
   }
 
-  /* Make left div text bigger on mobile */
   .header-left-section h1 {
     font-size: clamp(4rem, 10vw, 100px);
   }
@@ -181,4 +181,54 @@ main {
 /* NOTE FOR SELF: all icons are taken as SVGs from a free website called https://www.freeicons.org/ */
 .icons img {
   width: var(--icon-size);
+}
+
+/* Gallery */
+.gallery {
+  margin-top: 2rem;
+
+  width: 80vw;
+  margin-left: calc(50% - 40vw);
+  margin-right: calc(50% - 40vw);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+
+
+/* Images */
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Large screens – fit more images */
+@media (min-width: 1400px) {
+  .gallery {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1800px) {
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile – exactly 2 per row */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
