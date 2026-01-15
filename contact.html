@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anna's Contact</title>
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/contact_form.css">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
         <nav class="nav">
             <a class="nav-btn" href="./index.html" style="background-color: yellow;">HOME</a>
             <p style="line-height: 5px;">初心</p>
-            <a class="nav-btn" href="./contact.html" style="background-color: yellow;">CONTACT</a>
+            <a class="nav-btn" href="./contact.html">CONTACT</a>
         </nav>
 
         <header>
@@ -28,7 +29,22 @@
         </header>
 
         <main>
-            <p>contact form coming soon!</p>
+            <form action="https://formspree.io/f/xzddzvry" method="POST">
+                <label>
+                    Your name:
+                    <input type="text" name="name">
+                </label>
+                <label>
+                    Your email:
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    Your message:
+                    <textarea name="message"></textarea>
+                </label>
+                <!-- your other form fields go here -->
+                <button type="submit">Send</button>
+            </form>
         </main>
 
         <!-- Footer -->
