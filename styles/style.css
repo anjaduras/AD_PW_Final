@@ -22,6 +22,8 @@
 
   --font-size-logo: clamp(3rem, 8vw, 90px);
   --font-size-base: clamp(1rem, 4vw, 17px);
+
+  --icon-size: 40px;
 }
 
 /* Base */
@@ -134,10 +136,18 @@ main {
 /* Footer */
 .footer {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  flex-direction: column;
+  /* 👈 key fix */
+  align-items: center;
+  gap: 0.75rem;
   padding: 1rem;
   border-top: var(--border);
+}
+
+.icons {
+  display: flex;
+  /* icons stay in a row */
+  gap: 1rem;
 }
 
 /* Mobile */
@@ -166,4 +176,9 @@ main {
 
 .subpageheader {
   text-align: center;
+}
+
+/* NOTE FOR SELF: all icons are taken as SVGs from a free website called https://www.freeicons.org/ */
+.icons img {
+  width: var(--icon-size);
 }
